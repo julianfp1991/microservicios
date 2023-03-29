@@ -1,0 +1,26 @@
+package com.formacionbdi.microservicios.app.cursos.models.enity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="curso_alumnos")
+public class CursoAlumno {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	/*
+	 * unique, sirve para indicar que un solo alumno puede estar
+	 * registrado en un curso; no debe estar duplicado.
+	 */
+	@Column(name="alumno_id", unique= true)
+	private Long alumndoId;
+	
+	private Curso curso; // relacion con curso
+}

@@ -1,0 +1,22 @@
+package prueba.Algoritmos;
+
+public class Pruebas {
+
+	public static void main(String[] args) {
+		
+		Ensayo nuevo01 = new Ensayo();	
+		
+
+	}
+
+}
+
+
+class Ensayo{
+	
+	public String texto(String v) {
+		
+		return v.substring(3, 6);
+	}
+	
+}

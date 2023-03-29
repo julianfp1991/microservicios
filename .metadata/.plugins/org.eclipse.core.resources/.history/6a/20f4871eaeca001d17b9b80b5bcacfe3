@@ -1,0 +1,54 @@
+package prueba.Algoritmos;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class DosSumas {
+
+	public static void main(String[] args) {
+
+		DosSumas2 dosValores = new DosSumas2();
+		
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = dosValores.twoSum(nums, target);
+        if (result != null) {
+            System.out.println("Los índices son: " + Arrays.toString(result));
+        } else {
+            System.out.println("No se encontraron pares que sumen el objetivo");
+        }
+		
+		
+
+	}
+
+}
+
+class DosSumas2{
+	
+    public int[] twoSum(int[] nums, int target) {
+    	
+        // Crear un mapa para almacenar el valor y su índice correspondiente
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        // Recorrer el array
+        for (int i = 0; i < nums.length; i++) {
+            int complemento = target - nums[i];
+            
+            // Verificar si el complemento ya está en el mapa
+            if (map.containsKey(complemento)) {
+                // Si el complemento está en el mapa, retornar el índice actual y el índice almacenado en el mapa
+                return new int[] {map.get(complemento), i};
+            }
+            
+            // Si el complemento no está en el mapa, agregar el valor actual y su índice al mapa
+            map.put(nums[i], i);
+        }
+        
+        // Si no se encontraron pares que sumen el objetivo, retornar null
+        return null;
+    	
+    }
+}

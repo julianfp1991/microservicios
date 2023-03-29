@@ -1,0 +1,25 @@
+package prueba.Algoritmos;
+
+import java.util.Scanner;
+
+public class Prefijo {
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("resource")
+		Scanner dato = new Scanner(System.in);
+		
+		System.out.print("Ingrese algo: ");
+		String valorRecibido = dato.nextLine();
+	}
+
+}
+
+
+class Solution2 {
+	
+    public String longestCommonPrefix(String[] strs) {
+        
+    	return null;
+    }
+}

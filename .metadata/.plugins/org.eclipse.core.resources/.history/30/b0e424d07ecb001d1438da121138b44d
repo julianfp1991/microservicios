@@ -1,0 +1,15 @@
+package com.formacionbdi.microservicios.app.cursos.models.enity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="curso_alumnos")
+public class CursoAlumno {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+}

@@ -1,0 +1,26 @@
+package prueba.Algoritmos;
+
+import java.util.Scanner;
+
+public class DosSumas {
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("resource")
+		Scanner dato = new Scanner(System.in);
+		
+		System.out.println("Ingrese el target: ");
+		int target = dato.nextInt();
+
+	}
+
+}
+
+class DosSumas2{
+	
+    public int[] twoSum(int[] nums, int target) {
+    	
+    	return null;
+    	
+    }
+}

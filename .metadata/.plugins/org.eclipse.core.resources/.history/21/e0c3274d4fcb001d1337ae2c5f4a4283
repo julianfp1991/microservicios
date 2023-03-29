@@ -1,0 +1,43 @@
+package prueba.Algoritmos;
+
+import java.util.Scanner;
+
+public class Prefijo {
+
+	public static void main(String[] args) {
+
+		@SuppressWarnings("resource")
+		Scanner dato = new Scanner(System.in);
+		Solution2 pref = new Solution2();
+		
+		System.out.print("Ingrese algo: ");
+		String valorRecibido = dato.next();
+		
+		String[] valoresRecibidos = new String[5];
+
+		for (int i = 0; i < 5; i++) {
+		    valoresRecibidos[i] = dato.next();
+		}
+
+	}
+
+}
+
+
+class Solution2 {
+	
+	/*
+	 * Input: strs = ["flower","flow","flight"]
+	 * Output: "fl"
+	 * 
+	 * Input: strs = ["dog","racecar","car"]
+	 * Output: ""
+	 * Explanation: There is no common prefix among the input strings.
+	 */			
+	
+	
+    public String longestCommonPrefix(String[] strs) {
+        
+    	return null;
+    }
+}

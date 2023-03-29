@@ -1,0 +1,20 @@
+package com.formacionbdi.microservicios.app.cursos.models.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+
+import com.formacionbdi.microservicios.app.cursos.models.enity.Curso;
+
+public interface CursoRepository extends JpaRepository<Curso, Long>{
+
+	
+	@Query("select "
+		+		 "crs "
+		+ "from "
+		+ 		"Curso crs "
+		+ 		"join fetch crs.alumnos alm "
+		+ "where "
+		+ 		"alm.id=?1")
+	public Curso findCursoByAlumnoId(Long id);
+}

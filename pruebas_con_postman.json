@@ -1,0 +1,903 @@
+El ID 6 se asigno con los ID 1 y 3 de la tabla alumnos
+Se usan corchetes por ser un arreglo List<Alumno> alumno
+
+PUT: localhost:8090/api/cursos/6/asignar-alumnos
+
+[
+    {
+        "id": 1,
+        "nombre": "Daniela",
+        "apellido": "Zuñiga",
+        "email": "danielazuniga@mail.com",
+        "createAt": "2023-03-05T23:58:32.000+00:00"
+    },
+
+    {
+        "id": 3,
+        "nombre": "Diego",
+        "apellido": "Martinez",
+        "email": "dmartinez@outlook.com",
+        "createAt": "2023-03-05T23:59:13.000+00:00"
+    }
+]
+
+
+
+GET: localhost:8090/api/cursos/
+[
+    {
+        "id": 1,
+        "nombre": "1 º primaria",
+        "createAt": "2023-03-07T02:25:23.000+00:00",
+        "alumnos": []
+    },
+    {
+        "id": 2,
+        "nombre": "2 º primaria",
+        "createAt": "2023-03-07T02:25:28.000+00:00",
+        "alumnos": []
+    },
+    {
+        "id": 3,
+        "nombre": "1 º secundaria",
+        "createAt": "2023-03-07T02:25:42.000+00:00",
+        "alumnos": []
+    },
+    {
+        "id": 4,
+        "nombre": "2 º secundaria",
+        "createAt": "2023-03-07T02:25:55.000+00:00",
+        "alumnos": []
+    },
+    {
+        "id": 5,
+        "nombre": "3 º secundaria",
+        "createAt": "2023-03-07T02:25:58.000+00:00",
+        "alumnos": []
+    },
+    {
+        "id": 6,
+        "nombre": "4 º secundaria",
+        "createAt": "2023-03-07T02:26:03.000+00:00",
+        "alumnos": [
+            {
+                "id": 1,
+                "nombre": "Daniela",
+                "apellido": "Zuñiga",
+                "email": "danielazuniga@mail.com",
+                "createAt": "2023-03-05T23:58:32.000+00:00"
+            },
+            {
+                "id": 3,
+                "nombre": "Diego",
+                "apellido": "Martinez",
+                "email": "dmartinez@outlook.com",
+                "createAt": "2023-03-05T23:59:13.000+00:00"
+            }
+        ]
+    }
+]
+
+
+
+PUT localhost:8090/api/cursos/6/eliminar-alumno
+             {
+                "id": 1,
+                "nombre": "Daniela",
+                "apellido": "Zuñiga",
+                "email": "danielazuniga@mail.com",
+                "createAt": "2023-03-05T23:58:32.000+00:00"
+            }
+		
+Resultado:
+{
+    "id": 6,
+    "nombre": "4 º secundaria",
+    "createAt": "2023-03-07T02:26:03.000+00:00",
+    "alumnos": [
+        {
+            "id": 3,
+            "nombre": "Diego",
+            "apellido": "Martinez",
+            "email": "dmartinez@outlook.com",
+            "createAt": "2023-03-05T23:59:13.000+00:00"
+        }
+    ]
+}
+
+
+
+PUT: localhost:8090/api/cursos/6/asignar-alumnos
+[
+    {
+    "id": 2,
+    "nombre": "Andres",
+    "apellido": "Castillo",
+    "email": "acastilloa@mail.com",
+    "createAt": "2023-03-05T23:58:51.000+00:00"
+    }
+]
+
+Resultado
+{
+    "id": 6,
+    "nombre": "4 º secundaria",
+    "createAt": "2023-03-07T02:26:03.000+00:00",
+    "alumnos": [
+        {
+            "id": 3,
+            "nombre": "Diego",
+            "apellido": "Martinez",
+            "email": "dmartinez@outlook.com",
+            "createAt": "2023-03-05T23:59:13.000+00:00"
+        },
+        {
+            "id": 2,
+            "nombre": "Andres",
+            "apellido": "Castillo",
+            "email": "acastilloa@mail.com",
+            "createAt": "2023-03-05T23:58:51.000+00:00"
+        }
+    ]
+}
+
+
+
+GET: localhost:8090/api/alumnos/filtrar/andr
+
+[
+    {
+        "id": 2,
+        "nombre": "Andres",
+        "apellido": "Castillo",
+        "email": "acastilloa@mail.com",
+        "createAt": "2023-03-05T23:58:51.000+00:00"
+    },
+    {
+        "id": 5,
+        "nombre": "Andrea",
+        "apellido": "Guerrero",
+        "email": "andrea.guerrero@gmail.com",
+        "createAt": "2023-03-07T17:44:47.000+00:00"
+    },
+    {
+        "id": 6,
+        "nombre": "Andrea",
+        "apellido": "Perez",
+        "email": "andrea.perez@aol.com",
+        "createAt": "2023-03-07T17:45:10.000+00:00"
+    }
+]
+
+
+
+GET: localhost:8090/api/cursos/buscar-alumno-por-curso/3
+
+{
+    "id": 6,
+    "nombre": "4 º secundaria",
+    "createAt": "2023-03-07T02:26:03.000+00:00",
+    "alumnos": [
+        {
+            "id": 3,
+            "nombre": "Diego",
+            "apellido": "Martinez",
+            "email": "dmartinez@outlook.com",
+            "createAt": "2023-03-05T23:59:13.000+00:00"
+        }
+    ]
+}
+
+
+EXAMENES
+POST: localhost:8090/api/examenes
+{
+    "nombre": "Examen de historia",
+    "preguntas": [
+        {"texto":"¿quién descrubió América?"},
+        {"texto":"¿En que año se descubrió América?"},
+        {"texto":"¿Capital del imperio Inca?"}
+    ]
+}
+
+RESPUESTA
+{
+    "id": 1,
+    "nombre": "Examen de historia",
+    "preguntas": [
+        {
+            "id": 1,
+            "texto": "¿quién descrubió América?"
+        },
+        {
+            "id": 2,
+            "texto": "¿En que año se descubrió América?"
+        },
+        {
+            "id": 3,
+            "texto": "¿Capital del imperio Inca?"
+        }
+    ],
+    "createAt": "2023-03-10T01:51:55.859+00:00"
+}
+
+
+Se quitó la pregunta con id-2 y se agrego otra adicional
+PUT: localhost:8090/api/examenes/1
+{
+    "nombre": "Examen de historia",
+    "preguntas": [
+        {
+            "id": 1,
+            "texto": "¿quién descrubió Centro América?"
+        },
+        {
+            "id": 3,
+            "texto": "¿Capital del imperio Inca?"
+        },
+		{
+            "texto": "¿Capital del imperio Azteca?"
+        }
+    ]
+}
+
+RESPUESTA
+{
+    "id": 1,
+    "nombre": "Examen de historia",
+    "preguntas": [
+        {
+            "id": 1,
+            "texto": "¿quién descrubió Centro América?"
+        },
+        {
+            "id": 3,
+            "texto": "¿Capital del imperio Inca?"
+        },
+        {
+            "id": 4,
+            "texto": "¿Capital del imperio Azteca?"
+        }
+    ],
+    "createAt": "2023-03-10T01:51:55.000+00:00"
+}
+
+
+
+GET: localhost:8090/api/examenes/filtrar/historia
+
+[
+    {
+        "id": 1,
+        "nombre": "Examen de historia",
+        "preguntas": [
+            {
+                "id": 1,
+                "texto": "¿quién descrubió Centro América?"
+            },
+            {
+                "id": 3,
+                "texto": "¿Capital del imperio Inca?"
+            },
+            {
+                "id": 4,
+                "texto": "¿Capital del imperio Azteca?"
+            }
+        ],
+        "createAt": "2023-03-10T01:51:55.000+00:00"
+    }
+]
+
+
+
+PUT: localhost:8090/api/cursos/6/asignar-examenes
+[
+    {
+        "id": 1,
+        "nombre": "Examen de historia",
+        "preguntas": [
+            {
+                "id": 1,
+                "texto": "¿quién descrubió Centro América?"
+            },
+            {
+                "id": 3,
+                "texto": "¿Capital del imperio Inca?"
+            },
+            {
+                "id": 4,
+                "texto": "¿Capital del imperio Azteca?"
+            }
+        ],
+        "createAt": "2023-03-10T01:51:55.000+00:00"
+    }
+]
+
+RESPUESTA:
+{
+    "id": 6,
+    "nombre": "4 º secundaria",
+    "createAt": "2023-03-07T02:26:03.000+00:00",
+    "alumnos": [
+        {
+            "id": 2,
+            "nombre": "Andres",
+            "apellido": "Castillo",
+            "email": "acastilloa@mail.com",
+            "createAt": "2023-03-05T23:58:51.000+00:00"
+        },
+        {
+            "id": 3,
+            "nombre": "Diego",
+            "apellido": "Martinez",
+            "email": "dmartinez@outlook.com",
+            "createAt": "2023-03-05T23:59:13.000+00:00"
+        }
+    ],
+    "examenes": [
+        {
+            "id": 1,
+            "nombre": "Examen de historia",
+            "preguntas": [
+                {
+                    "id": 1,
+                    "texto": "¿quién descrubió Centro América?"
+                },
+                {
+                    "id": 3,
+                    "texto": "¿Capital del imperio Inca?"
+                },
+                {
+                    "id": 4,
+                    "texto": "¿Capital del imperio Azteca?"
+                }
+            ],
+            "createAt": "2023-03-10T01:51:55.000+00:00"
+        }
+    ]
+}
+
+
+GET: localhost:8090/api/examenes/asignaturas
+[
+    {
+        "id": 1,
+        "nombre": "Matematicas",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 8,
+                "nombre": "Algebra",
+                "hijos": []
+            },
+            {
+                "id": 9,
+                "nombre": "Aritmetica",
+                "hijos": []
+            },
+            {
+                "id": 10,
+                "nombre": "Trigonometria",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Lenguaje",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 11,
+                "nombre": "Lectura y compresion",
+                "hijos": []
+            },
+            {
+                "id": 12,
+                "nombre": "Verbos",
+                "hijos": []
+            },
+            {
+                "id": 13,
+                "nombre": "Gramatica",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Ingles",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 14,
+                "nombre": "Ingles",
+                "hijos": []
+            },
+            {
+                "id": 15,
+                "nombre": "Gramatica",
+                "hijos": []
+            },
+            {
+                "id": 16,
+                "nombre": "Verbos",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Ciencias Naturales",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 17,
+                "nombre": "Ciencias Naturales",
+                "hijos": []
+            },
+            {
+                "id": 18,
+                "nombre": "Biologia",
+                "hijos": []
+            },
+            {
+                "id": 19,
+                "nombre": "Fisica",
+                "hijos": []
+            },
+            {
+                "id": 20,
+                "nombre": "Quimica",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Ciencias Sociales e Historia",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 21,
+                "nombre": "Historia",
+                "hijos": []
+            },
+            {
+                "id": 22,
+                "nombre": "Ciencias Sociales",
+                "hijos": []
+            },
+            {
+                "id": 23,
+                "nombre": "Filosofia",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Musica",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 24,
+                "nombre": "Musica",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Artes",
+        "padre": null,
+        "hijos": [
+            {
+                "id": 25,
+                "nombre": "Artes",
+                "hijos": []
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "Algebra",
+        "padre": {
+            "id": 1,
+            "nombre": "Matematicas",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 9,
+        "nombre": "Aritmetica",
+        "padre": {
+            "id": 1,
+            "nombre": "Matematicas",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 10,
+        "nombre": "Trigonometria",
+        "padre": {
+            "id": 1,
+            "nombre": "Matematicas",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 11,
+        "nombre": "Lectura y compresion",
+        "padre": {
+            "id": 2,
+            "nombre": "Lenguaje",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 12,
+        "nombre": "Verbos",
+        "padre": {
+            "id": 2,
+            "nombre": "Lenguaje",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 13,
+        "nombre": "Gramatica",
+        "padre": {
+            "id": 2,
+            "nombre": "Lenguaje",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 14,
+        "nombre": "Ingles",
+        "padre": {
+            "id": 3,
+            "nombre": "Ingles",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 15,
+        "nombre": "Gramatica",
+        "padre": {
+            "id": 3,
+            "nombre": "Ingles",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 16,
+        "nombre": "Verbos",
+        "padre": {
+            "id": 3,
+            "nombre": "Ingles",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 17,
+        "nombre": "Ciencias Naturales",
+        "padre": {
+            "id": 4,
+            "nombre": "Ciencias Naturales",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 18,
+        "nombre": "Biologia",
+        "padre": {
+            "id": 4,
+            "nombre": "Ciencias Naturales",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 19,
+        "nombre": "Fisica",
+        "padre": {
+            "id": 4,
+            "nombre": "Ciencias Naturales",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 20,
+        "nombre": "Quimica",
+        "padre": {
+            "id": 4,
+            "nombre": "Ciencias Naturales",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 21,
+        "nombre": "Historia",
+        "padre": {
+            "id": 5,
+            "nombre": "Ciencias Sociales e Historia",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 22,
+        "nombre": "Ciencias Sociales",
+        "padre": {
+            "id": 5,
+            "nombre": "Ciencias Sociales e Historia",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 23,
+        "nombre": "Filosofia",
+        "padre": {
+            "id": 5,
+            "nombre": "Ciencias Sociales e Historia",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 24,
+        "nombre": "Musica",
+        "padre": {
+            "id": 6,
+            "nombre": "Musica",
+            "padre": null
+        },
+        "hijos": []
+    },
+    {
+        "id": 25,
+        "nombre": "Artes",
+        "padre": {
+            "id": 7,
+            "nombre": "Artes",
+            "padre": null
+        },
+        "hijos": []
+    }
+]
+
+********* VALIDACIONES ****************
+POST: localhost:8090/api/alumnos
+{
+    "apellido": " El campo apellido no debe estar vacío",
+    "nombre": " El campo nombre no debe estar vacío",
+    "email": " El campo email no debe estar vacío"
+}
+
+
+POST: localhost:8090/api/alumnos
+{
+    "email":"julian"
+}
+
+RESPUESTA
+{
+    "apellido": " El campo apellido no debe estar vacío",
+    "nombre": " El campo nombre no debe estar vacío",
+    "email": " El campo email debe ser una dirección de correo electrónico con formato correcto"
+}
+
+
+POST: localhost:8090/api/alumnos
+{
+    "email":"julian@mail.com",
+    "nombre": "julian"
+}
+
+RESPUESTA
+{
+    "apellido": " El campo apellido no debe estar vacío"
+}
+
+
+POST: localhost:8090/api/cursos
+{
+    "nombre": ""
+}
+
+RESPUESTA
+{
+    "nombre": " El campo nombre no debe estar vacío"
+}
+
+
+
+POST: localhost:8090/api/examenes
+{
+    "nombre": "abc"
+}
+
+RESPUESTA
+{
+    "asignatura": " El campo asignatura no debe ser nulo",
+    "nombre": " El campo nombre el tamaño debe estar entre 4 y 30"
+}
+
+
+
+Quitando la anotacion "@NotNull" en la Entity Examen
+POST: localhost:8090/api/examenes
+{
+    "nombre": "Examen de religion",
+    "preguntas": [
+        {"texto":"¿que es la Biblia"}
+    ]
+}
+
+RESPUESTA
+{
+    "id": 2,
+    "nombre": "Examen de religion",
+    "preguntas": [
+        {
+            "id": 5,
+            "texto": "¿que es la Biblia"
+        }
+    ],
+    "asignatura": null,
+    "createAt": "2023-03-12T19:56:50.387+00:00"
+}
+
+
+
+POR PAGINAS
+GET: localhost:8090/api/alumnos/pagina?page=0&size=3
+{
+    "content": [
+        {
+            "id": 1,
+            "nombre": "Daniela",
+            "apellido": "Zuñiga",
+            "email": "danielazuniga@mail.com",
+            "createAt": "2023-03-05T23:58:32.000+00:00"
+        },
+        {
+            "id": 2,
+            "nombre": "Andres",
+            "apellido": "Castillo",
+            "email": "acastilloa@mail.com",
+            "createAt": "2023-03-05T23:58:51.000+00:00"
+        },
+        {
+            "id": 3,
+            "nombre": "Diego",
+            "apellido": "Martinez",
+            "email": "dmartinez@outlook.com",
+            "createAt": "2023-03-05T23:59:13.000+00:00"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+        },
+        "offset": 0,
+        "pageNumber": 0,
+        "pageSize": 3,
+        "unpaged": false,
+        "paged": true
+    },
+    "last": false,
+    "totalPages": 3,
+    "totalElements": 9,
+    "size": 3,
+    "number": 0,
+    "sort": {
+        "empty": true,
+        "sorted": false,
+        "unsorted": true
+    },
+    "first": true,
+    "numberOfElements": 3,
+    "empty": false
+}
+
+
+
+GET: localhost:8090/api/alumnos/pagina?page=1&size=6
+
+{
+    "content": [
+        {
+            "id": 7,
+            "nombre": "Plutarco",
+            "apellido": "Gomez",
+            "email": "plutarco@aol.com",
+            "createAt": "2023-03-12T22:28:58.000+00:00"
+        },
+        {
+            "id": 8,
+            "nombre": "Petronila",
+            "apellido": "Paredes",
+            "email": "petronila@aol.com",
+            "createAt": "2023-03-12T22:29:17.000+00:00"
+        },
+        {
+            "id": 9,
+            "nombre": "Laura",
+            "apellido": "Yepez",
+            "email": "lauray@aol.com",
+            "createAt": "2023-03-12T22:29:36.000+00:00"
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+        },
+        "offset": 6,
+        "pageNumber": 1,
+        "pageSize": 6,
+        "unpaged": false,
+        "paged": true
+    },
+    "last": true,
+    "totalPages": 2,
+    "totalElements": 9,
+    "size": 6,
+    "number": 1,
+    "sort": {
+        "empty": true,
+        "sorted": false,
+        "unsorted": true
+    },
+    "first": false,
+    "numberOfElements": 3,
+    "empty": false
+}
+
+
+CREAR USUARIO CON FOTO
+POST: localhost:8090/api/alumnos/crear-con-foto
+{
+    "id": 13,
+    "nombre": "Gabriel",
+    "apellido": "Gonzalez",
+    "email": "ggonzalez@mail.com",
+    "createAt": "2023-03-15T00:38:55.810+00:00",
+    "fotoHashCode": 494439405
+}
+
+
+EDITAR USUARIO CON FOTO
+PUT: localhost:8090/api/alumnos/editar-con-foto/5
+{
+    "id": 5,
+    "nombre": "Andrea",
+    "apellido": "Guerrero",
+    "email": "andrea.guerrero@gmail.com",
+    "createAt": "2023-03-07T17:44:47.000+00:00",
+    "fotoHashCode": 683861408
+}
+
+
+GET: localhost:8090/api/alumnos/cargas-fotos/img/1
+
+<Devuelve la foto>

@@ -1,0 +1,20 @@
+package com.formacionbdi.microservicios.app.cursos.services;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.formacionbdi.microservicios.app.cursos.models.enity.Curso;
+import com.formacionbdi.microservicios.comun.services.ComunContrato;
+
+public interface CursoService extends ComunContrato<Curso> {
+	
+	/*
+	 * public Iterable<Curso> buscarTodo();
+	 * public Optional<Curso> findById(Long id); 
+	 * public Curso guardar(Curso entity);
+	 * public void deleteById(Long id);
+	 */
+	
+	public Curso findCursoByAlumnoId(Long id);
+	
+	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(@PathVariable Long alumnoId);
+}

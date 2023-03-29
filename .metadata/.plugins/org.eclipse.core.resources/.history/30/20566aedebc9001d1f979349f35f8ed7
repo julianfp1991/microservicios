@@ -1,0 +1,93 @@
+package prueba.Algoritmos;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Romano_03 {
+
+	public static void main(String[] args) {
+		
+
+		@SuppressWarnings("resource")
+		Scanner romano = new Scanner(System.in);
+		
+		Solution romanoIns =new Solution();
+		
+		System.out.println("Ingrese el numero romano: ");
+		String valorRomano = romano.nextLine();
+				
+	//	System.out.println("el valor es "+romanoIns.validarV(valorRomano));
+		System.out.print("el numero es  "+romanoIns.romanToInt(valorRomano));
+		
+	}
+}
+
+
+class Solution {
+	
+	
+    public int validarV(String s) {
+    	
+    	if(s.equals("V")) {
+    		
+    		return 5;
+    	}else {
+    		return 0;
+    	}
+    	
+        
+    }
+    
+    public int romanToInt(String s) {
+    	
+    	/*
+    	 * 3=III
+    	 * 4=I-V
+    	 * 5=V
+    	 * 6=V-I
+    	 * 58=LV-III
+    	 * 1994=M-CM-XC-IV
+    	 * 1773=M-DCC-LXX-III
+    	 * 3999=MMM-CM-XC-IX
+    	 * 
+    	 * Symbol       Value
+    	 * I             1
+    	 * V             5
+    	 * X             10
+    	 * L             50
+    	 * C             100
+    	 * D             500
+    	 * M             1000
+    	 */
+    	
+    	String[] indices = new String[s.length()];
+    	
+    	int largo = s.length();
+    	
+    	// 3999=MMM-CM-XC-IX
+    	for(int i=0; i<=largo; i++) {
+    		
+    		char c = s.charAt(i);
+    		
+    		for(int j=i+1; j<largo; j++) {
+    			
+    			char d = s.charAt(j);
+    			
+    			if(indices[i].equals(indices[j]) && indices[j].equals(indices[j+1]) && indices[i].equals(indices[j+1])) {
+    				
+    				return 3000;
+    			}
+    			if(indices[i].equals(indices[j])) {
+    				
+    				return 2000;
+    				
+    			}	
+
+    			}
+    			
+    		}
+    	
+    	return 0;
+    }
+}

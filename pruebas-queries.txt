@@ -1,0 +1,24 @@
+@Query("SELECT r " +
+		"FROM Respuesta r " +
+		"JOIN FETCH r.alumno a " +
+		"JOIN FETCH r.pregunta p " +
+		"JOIN FETCH p.examen e " +
+		"WHERE a.id = ?1 " +
+		"AND e.id = ?2")
+		
+		
+@Query("SELECT r FROM Respuesta r JOIN FETCH r.alumno a JOIN FETCH r.pregunta p JOIN FETCH p.examen e WHERE a.id = ?1 AND e.id = ?2")
+
+@Query("select r from respuesta r join fetch r.alumno a join fetch r.pregunta p join fetch p.examen e where a.id = ?1 and e.id = ?2")
+
+
+
+@Query("SELECT e.id "
+		+ "FROM Respuesta r "
+		+ "JOIN r.alumno a "
+		+ "JOIN r.pregunta p "
+		+ "JOIN p.examen e "
+		+ "WHERE a.id = ?1 "
+		+ "GROUP BY e.id")
+
+@Query("select e.id from respuesta r join r.alumno a join p.examen e where a.id = :alumnoid group by e.id")
