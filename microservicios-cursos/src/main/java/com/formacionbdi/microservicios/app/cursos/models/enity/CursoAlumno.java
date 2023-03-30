@@ -25,7 +25,7 @@ public class CursoAlumno {
 	 * registrado en un curso; no debe estar duplicado.
 	 */
 	@Column(name="alumno_id", unique = true)
-	private Long alumndoId; // almacena los ids de los alumnos pertenecientes al curso.
+	private Long alumnoId; // almacena los ids de los alumnos pertenecientes al curso.
 	
 	/*
 	 * Se realizar una relacion bidireccional para que no se genere otra
@@ -44,12 +44,12 @@ public class CursoAlumno {
 		this.id = id;
 	}
 
-	public Long getAlumndoId() {
-		return alumndoId;
+	public Long getAlumnoId() {
+		return alumnoId;
 	}
 
-	public void setAlumndoId(Long alumndoId) {
-		this.alumndoId = alumndoId;
+	public void setAlumnoId(Long alumnoId) {
+		this.alumnoId = alumnoId;
 	}
 
 	public Curso getCurso() {
@@ -77,7 +77,7 @@ public class CursoAlumno {
 		
 		
 		// que el alumndoId sea disntinto de nulo y ya que es distinto de nulo se compara el id del objeto "a"
-		return this.alumndoId != null && this.alumndoId.equals(a.getAlumndoId());
+		return this.alumnoId != null && this.alumnoId.equals(a.getAlumnoId());
 
 	}
 	

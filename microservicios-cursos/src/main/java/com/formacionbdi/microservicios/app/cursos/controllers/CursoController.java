@@ -123,7 +123,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 			alumnos.forEach(elemento -> {
 				
 					CursoAlumno cursoAlumnoIns = new CursoAlumno();
-					cursoAlumnoIns.setAlumndoId(elemento.getId());
+					cursoAlumnoIns.setAlumnoId(elemento.getId());
 					cursoAlumnoIns.setCurso(dbCurso);
 					
 					// dbCurso.addAlumno(elemento);
@@ -151,7 +151,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 			Curso dbCurso = validacion.get();
 			
 			CursoAlumno cursoAlumnoIns = new CursoAlumno();
-			cursoAlumnoIns.setAlumndoId(alumnoR.getId());
+			cursoAlumnoIns.setAlumnoId(alumnoR.getId());
 			// dbCurso.removeAlumno(alumnoR);
 			dbCurso.removeCursoAlumno(cursoAlumnoIns);
 			
@@ -245,6 +245,28 @@ public class CursoController extends CommonController<Curso, CursoService>{
 			dbCurso.removeExamen(examenR);
 			
 			return ResponseEntity.status(HttpStatus.CREATED).body(this.servicio.guardar(dbCurso));
+	}
+	
+	@GetMapping
+	@Override
+	public ResponseEntity<?> listar(){
+		
+		/*
+		 * c = Curso
+		 * ca = CursoAlumno
+		 */
+		List<Curso> cursos =  ((List<Curso>) servicio.buscarTodo())
+				.stream()
+				.map(c -> {
+					c.getCursoAlumno()	// public List<CursoAlumno> getCursoAlumno() {}
+					.forEach(ca -> {
+						Alumno alumno = new Alumno();
+						alumno.setId(ca.getAlumnoId());	// public Long getAlumnoId() {}
+						c.addAlumno(alumno);	// public void addAlumno(Alumno alumno) {}
+					});
+					return c;
+				}).collect(Collectors.toList());
+		return ResponseEntity.ok().body(cursos);
 	}
 
 }
