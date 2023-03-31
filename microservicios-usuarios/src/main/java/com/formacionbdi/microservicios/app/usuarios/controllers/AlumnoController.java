@@ -1,6 +1,7 @@
 package com.formacionbdi.microservicios.app.usuarios.controllers;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.core.io.ByteArrayResource;
@@ -227,5 +228,10 @@ public class AlumnoController extends CommonController<Alumno, AlumnoServiceCont
 			
 	}
 	
+	@GetMapping("/alumnos-por-curso")
+	public ResponseEntity<?> obtenerAlumnosPorCurso(@RequestParam List<Long> ids){
+		return ResponseEntity.ok(servicio.buscarTodoPorId(ids));
+		// return ResponseEntity.ok().body(servicio.buscarTodoPorId(ids));
+	}
 	
 }

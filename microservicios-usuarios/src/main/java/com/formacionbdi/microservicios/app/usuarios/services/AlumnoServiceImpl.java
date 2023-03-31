@@ -29,6 +29,13 @@ public class AlumnoServiceImpl extends ComunServiceImpl<Alumno, AlumnoRepository
 		return repositorioCrud.findByNombreOrApellido(termino);
 	}
 
+	@Override
+	@Transactional(readOnly=true)
+	public Iterable<Alumno> buscarTodoPorId(Iterable<Long> ids) {
+		
+		return repositorioCrud.findAllById(ids);
+	}
+
 
 	/*
 	 * @Autowired private AlumnoRepository repositorioCrud;

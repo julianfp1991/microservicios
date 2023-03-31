@@ -254,6 +254,12 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		/*
 		 * c = Curso
 		 * ca = CursoAlumno
+		 * 
+		 * Se convierte de un Iterable a un List y se usa el stream
+		 * para pasar el alumno por cada Curso, luego se crea una instancia
+		 * de Alumno para pasarle el ID. Esto para usarlo en el frontend
+		 * para llenar el atributo en Curso List<Alumnos> con objetos de tipo
+		 * alumno.
 		 */
 		List<Curso> cursos =  ((List<Curso>) servicio.buscarTodo())
 				.stream()

@@ -34,4 +34,6 @@ public interface AlumnoServiceContrato extends ComunContrato<Alumno>{
 	*/
 	
 	public List<Alumno> findByNombreOrApellido(String termino);
+	
+	public Iterable<Alumno> buscarTodoPorId(Iterable<Long> ids);
 }
