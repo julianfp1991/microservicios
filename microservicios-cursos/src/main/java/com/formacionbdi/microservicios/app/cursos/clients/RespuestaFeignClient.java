@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * 
  * Feign es un cliente HTTP.
  */
-@FeignClient(name="microservicio-respuestas")
+@FeignClient(name="microservicio-respuestas") // Properties - microservicio Respuestas
 public interface RespuestaFeignClient {
 
-	@GetMapping("/alumno/{alumnoId}/examenes-respondidos")
-	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(@PathVariable Long alumnoId);
+	@GetMapping("/alumno/{alumnoId}/examenes-respondidos")	// Controlador de Respuesta
+	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(@PathVariable Long alumnoId); // (1 Feign)
 	
 }

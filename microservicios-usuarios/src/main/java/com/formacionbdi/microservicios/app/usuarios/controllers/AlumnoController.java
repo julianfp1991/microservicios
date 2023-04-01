@@ -217,7 +217,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoServiceCont
 		 * Con el condicional If, se valida ID no existe o si esta el ID del alumno, que este no tenga foto
 		 * para retornar que "NOT FOUND"
 		 */
-		if(hayDatos.isEmpty() || hayDatos.get().getFoto()== null) {
+		if(hayDatos.isEmpty() || hayDatos.get().getFoto() == null) {
 			
 			return ResponseEntity.notFound().build();
 		}
@@ -228,8 +228,10 @@ public class AlumnoController extends CommonController<Alumno, AlumnoServiceCont
 			
 	}
 	
+	
 	@GetMapping("/alumnos-por-curso")
 	public ResponseEntity<?> obtenerAlumnosPorCurso(@RequestParam List<Long> ids){
+		
 		return ResponseEntity.ok(servicio.buscarTodoPorId(ids));
 		// return ResponseEntity.ok().body(servicio.buscarTodoPorId(ids));
 	}

@@ -109,6 +109,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		return ResponseEntity.ok(respuesta);
 	}
 
+	
 	@PutMapping("/{id}/asignar-alumnos") // nombre de ruta
 	public ResponseEntity<?> asignarAlumnos(@RequestBody List<Alumno> alumnos, @PathVariable Long id){
 		
@@ -174,7 +175,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 				 * Como el metodo «obtenerExamenesIdsConRespuestasAlumno» es un Iterable
 				 * se hace un CAST a List<>, para aprovechar el "contains"
 				 */
-				List<Long> examenesIds = (List<Long>) servicio.obtenerExamenesIdsConRespuestasAlumno(id);
+				List<Long> examenesIds = (List<Long>) servicio.obtenerExamenesIdsConRespuestasAlumno(id); // (1 Feign)
 				
 				/*
 				 * API stream: sirve para manipular objetos y usar el operador "map" que permite
@@ -273,6 +274,39 @@ public class CursoController extends CommonController<Curso, CursoService>{
 					return c;
 				}).collect(Collectors.toList());
 		return ResponseEntity.ok().body(cursos);
+	}
+	
+	@GetMapping("/")
+	@Override
+	public 	ResponseEntity<?> ver(@PathVariable Long id){
+		Optional<Curso> objeto = servicio.buscarById(id);
+		if (objeto.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		Curso curso = objeto.get();
+		
+		if (curso.getAlumnos().isEmpty() == false)
+		{
+			List<Long> ids = curso.getCursoAlumno()
+					.stream()
+					
+				/*	Opción 1
+					.map(ca -> {
+						return ca.getAlumnoId();
+					})
+					
+					Se puede hacer una función de flecha como opcion 2,
+					cuando solo esta retornando
+				*/	
+					.map(ca -> ca.getAlumnoId())
+					.collect(Collectors.toList());
+			
+			List <Alumno> alumnos = (List<Alumno>) servicio.obtenerAlumnosPorCurso(ids);
+			
+			curso.setAlumnos(alumnos);
+		}
+		return ResponseEntity.ok().body(curso);
 	}
 
 }

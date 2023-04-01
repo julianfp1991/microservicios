@@ -1,13 +1,17 @@
 package com.formacionbdi.microservicios.app.cursos.services;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.formacionbdi.microservicios.app.cursos.clients.AlumnoFeignClient;
 import com.formacionbdi.microservicios.app.cursos.clients.RespuestaFeignClient;
 import com.formacionbdi.microservicios.app.cursos.models.enity.Curso;
 import com.formacionbdi.microservicios.app.cursos.models.repository.CursoRepository;
+import com.formacionbdi.microservicios.commnos.alumnos.models.entity.Alumno;
 import com.formacionbdi.microservicios.comun.services.ComunServiceImpl;
 
 /*Para que se registre como un componente Spring
@@ -17,10 +21,13 @@ public class CursoServiceImpl extends ComunServiceImpl<Curso, CursoRepository> i
 
 	
 	/*
-	 * Inyeccion de la interfaz HTTP Client de listado de examenes
+	 * Inyeccion de la interfaz HTTP Client Fiegn de listado de examenes
 	 */
 	@Autowired
-	private RespuestaFeignClient cliente;
+	private RespuestaFeignClient cliente;	// (1 Feign)
+	
+	@Autowired
+	private AlumnoFeignClient clienteAlumno;	// (2 Feign)
 
 	/*
 	 * @Autowired
@@ -70,9 +77,16 @@ public class CursoServiceImpl extends ComunServiceImpl<Curso, CursoRepository> i
 
 	
 	@Override
-	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(Long alumnoId) {
+	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(Long alumnoId) { // (1 Feign)
 
 		return cliente.obtenerExamenesIdsConRespuestasAlumno(alumnoId);
+	}
+
+
+	@Override
+	public Iterable<Alumno> obtenerAlumnosPorCurso(List<Long> ids) {
+
+		return clienteAlumno.obtenerAlumnosPorCurso(ids);
 	}
 
 }
