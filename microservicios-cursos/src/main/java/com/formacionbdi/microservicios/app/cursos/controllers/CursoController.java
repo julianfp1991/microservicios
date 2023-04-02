@@ -278,17 +278,18 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		return ResponseEntity.ok().body(cursos);
 	}
 	
-	@GetMapping
-	@Override
-	public 	ResponseEntity<?> ver(@PathVariable Long id){
+	@GetMapping("/distribuido/{id}")
+	public 	ResponseEntity<?> verDistribuido(@PathVariable Long id){ // id curso
+		
 		Optional<Curso> objeto = servicio.buscarById(id);
+		
 		if (objeto.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 		
 		Curso curso = objeto.get();
 		
-		if (curso.getAlumnos().isEmpty() == false)
+		if (curso.getCursoAlumno().isEmpty() == false)
 		{
 			List<Long> ids = curso.getCursoAlumno()
 					.stream()
@@ -304,7 +305,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 					.map(ca -> ca.getAlumnoId())
 					.collect(Collectors.toList());
 			
-			List <Alumno> alumnos = (List<Alumno>) servicio.obtenerAlumnosPorCurso(ids);
+			List<Alumno> alumnos = (List<Alumno>) servicio.obtenerAlumnosPorCurso(ids);
 			
 			curso.setAlumnos(alumnos);
 		}

@@ -1,7 +1,6 @@
 package com.formacionbdi.microservicios.app.cursos.services;
 
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -84,7 +83,7 @@ public class CursoServiceImpl extends ComunServiceImpl<Curso, CursoRepository> i
 
 
 	@Override
-	public Iterable<Alumno> obtenerAlumnosPorCurso(List<Long> ids) {
+	public Iterable<Alumno> obtenerAlumnosPorCurso(Iterable<Long> ids) {
 
 		return clienteAlumno.obtenerAlumnosPorCurso(ids);
 	}

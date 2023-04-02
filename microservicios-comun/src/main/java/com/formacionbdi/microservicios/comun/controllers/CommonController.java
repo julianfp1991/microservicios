@@ -54,10 +54,8 @@ public class CommonController <ENT, SRV extends ComunContrato<ENT>> {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 		
 		Optional<ENT> idEncontrado = servicio.buscarById(idEntity); // OPCIÓN 2
-
 //		Optional<Alumno> siHayDatos = servicio.findById(id); // OPCIÓN 1 - cuando el id es igual al del argumento.
-		
-		
+				
 		if(idEncontrado.isEmpty()) {
 			
 			/* 

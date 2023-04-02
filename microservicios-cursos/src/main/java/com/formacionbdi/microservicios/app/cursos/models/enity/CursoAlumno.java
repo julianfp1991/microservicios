@@ -28,7 +28,7 @@ public class CursoAlumno {
 	private Long alumnoId; // almacena los ids de los alumnos pertenecientes al curso.
 	
 	/*
-	 * Se realizar una relacion bidireccional para que no se genere otra
+	 * Se realiza una relacion bidireccional para que no se genere otra
 	 * tabla intermedia, ya que esta entidad es la tabla intermedia.
 	 */
 	@JsonIgnoreProperties(value = {"cursoAlumno"}) // se ignora de la relacion inversa.

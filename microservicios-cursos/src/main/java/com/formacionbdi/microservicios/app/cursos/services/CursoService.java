@@ -1,6 +1,5 @@
 package com.formacionbdi.microservicios.app.cursos.services;
 
-import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,5 +25,5 @@ public interface CursoService extends ComunContrato<Curso> {
 	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(Long alumnoId); // (1 Feign)
 	
 	
-	public Iterable<Alumno> obtenerAlumnosPorCurso(@RequestParam List<Long> ids); // (2 Feign)
+	public Iterable<Alumno> obtenerAlumnosPorCurso(@RequestParam Iterable<Long> ids); // (2 Feign)
 }
