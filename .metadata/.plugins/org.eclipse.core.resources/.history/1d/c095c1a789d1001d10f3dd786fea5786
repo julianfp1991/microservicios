@@ -1,0 +1,53 @@
+package com.formacionbdi.microservicios.app.usuarios.models.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.formacionbdi.microservicios.commnos.alumnos.models.entity.Alumno;
+
+
+
+// Capa repositorio
+
+/* También se podría usar directamente en el controlador, pero
+ * no es buena practica. Lo ideal es desacoplar porque podriamos tener
+ * un controlador con varios accesos a objetos repositorios. MVC
+ * 
+ */
+
+//public interface AlumnoRepository extends CrudRepository<nombreClaseEntity, tipoID>
+
+
+// public interface AlumnoRepository extends CrudRepository<Alumno, Long> {
+public interface AlumnoRepository extends JpaRepository<Alumno, Long> {
+
+	
+	/*
+	 * esta no es un consulta nativa en la bbdd; es una consulta Hibernate o JPA Query (HQL).
+	 * 
+	 * SELECT
+	 * 	alumnos.*
+	 * FROM
+	 * 	alumnos
+	 * WHERE
+	 * 	alumnos.nombre LIKE '%andr%' OR
+	 * 	alumnos.apellido LIKE '%cast%'
+	 */
+	@Query("SELECT "
+			+ 		"alum "
+			+ "FROM "
+			+ 		"Alumno alum "
+			+ "WHERE "
+			+ 		"LOWER(alum.nombre) LIKE LOWER(concat('%', ?1, '%')) "
+			+ 		"OR LOWER(alum.apellido) LIKE LOWER(concat('%', ?1, '%'))")
+	
+	/*
+	 * @Query("select a from Alumno a where lower(a.nombre) like lower(concat('%', :termino, '%')) or lower(a.apellido) like lower(concat('%', :termino, '%'))")
+public List<Alumno> findByNombreOrApellido(String termino);
+
+	 */
+	public List<Alumno> findByNombreOrApellido(String termino);
+	
+}

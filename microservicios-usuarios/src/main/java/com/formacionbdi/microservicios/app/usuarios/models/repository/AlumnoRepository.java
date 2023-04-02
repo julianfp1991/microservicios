@@ -35,12 +35,13 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Long> {
 	 * 	alumnos.nombre LIKE '%andr%' OR
 	 * 	alumnos.apellido LIKE '%cast%'
 	 */
-	@Query("select "
+	@Query("SELECT "
 			+ 		"alum "
-			+ "from "
+			+ "FROM "
 			+ 		"Alumno alum "
-			+ "where "
-			+ 		"alum.nombre like %?1% or alum.apellido like %?1%")
+			+ "WHERE "
+			+ 		"LOWER(alum.nombre) LIKE LOWER(concat('%', ?1, '%')) "
+			+ 	"OR LOWER(alum.apellido) LIKE LOWER(concat('%', ?1, '%'))")
 	public List<Alumno> findByNombreOrApellido(String termino);
 	
 }
