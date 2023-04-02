@@ -12,6 +12,6 @@ public interface CursoRepository extends JpaRepository<Curso, Long>{
 	@Query("SELECT crs "
 			+ "FROM Curso crs "
 			+ "JOIN FETCH crs.cursoAlumno alm "
-			+ "WHERE alm.alumndoId = ?1")
+			+ "WHERE alm.alumnoId = ?1")
 	public Curso findCursoByAlumnoIdRepository(Long id);
 }

@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -248,7 +250,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 			return ResponseEntity.status(HttpStatus.CREATED).body(this.servicio.guardar(dbCurso));
 	}
 	
-	@GetMapping
+	@GetMapping("/")
 	@Override
 	public ResponseEntity<?> listar(){
 		
@@ -276,7 +278,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		return ResponseEntity.ok().body(cursos);
 	}
 	
-	@GetMapping("/")
+	@GetMapping
 	@Override
 	public 	ResponseEntity<?> ver(@PathVariable Long id){
 		Optional<Curso> objeto = servicio.buscarById(id);
@@ -307,6 +309,25 @@ public class CursoController extends CommonController<Curso, CursoService>{
 			curso.setAlumnos(alumnos);
 		}
 		return ResponseEntity.ok().body(curso);
+	}
+	
+	
+	@GetMapping("/pagina") // Aca se lista con paginacion
+	@Override
+	public ResponseEntity<?> listar(Pageable paginable){
+		
+		Page<Curso> cursos = servicio.buscarTodo(paginable)
+				.map(curso -> {
+					curso.getCursoAlumno()	// public List<CursoAlumno> getCursoAlumno() {}
+					.forEach(ca -> {
+						Alumno alumno = new Alumno();
+						alumno.setId(ca.getAlumnoId());	// public Long getAlumnoId() {}
+						curso.addAlumno(alumno);	// public void addAlumno(Alumno alumno) {}
+					});
+					return curso;
+				});
+		
+		return ResponseEntity.ok().body(cursos);
 	}
 
 }
