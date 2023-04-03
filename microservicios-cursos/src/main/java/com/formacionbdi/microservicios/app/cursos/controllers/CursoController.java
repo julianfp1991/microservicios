@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -278,6 +279,9 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		return ResponseEntity.ok().body(cursos);
 	}
 	
+	/*
+	 * Buscar un curso por id pero con bbdd distrbuida
+	 */
 	@GetMapping("/distribuido/{id}")
 	public 	ResponseEntity<?> verDistribuido(@PathVariable Long id){ // id curso
 		
@@ -312,8 +316,10 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		return ResponseEntity.ok().body(curso);
 	}
 	
-	
-	@GetMapping("/pagina") // Aca se lista con paginacion
+	/*
+	 * Para listar los cursos y los ids con paginable pero con la bbdd distribuida
+	 */
+	@GetMapping("/pagina")
 	@Override
 	public ResponseEntity<?> listar(Pageable paginable){
 		
@@ -329,6 +335,16 @@ public class CursoController extends CommonController<Curso, CursoService>{
 				});
 		
 		return ResponseEntity.ok().body(cursos);
+	}
+	
+	/*
+	 * Endpoint para eliminar de la bbdd un alumno del curso
+	 */
+	@DeleteMapping("/eliminar-alumno-del-curso/{id}")
+	public ResponseEntity<?> eliminarAlumnoPorCursoId(@PathVariable Long id){
+		
+		servicio.eliminarCursoAlumnoPorId(id);
+		return ResponseEntity.noContent().build();
 	}
 
 }

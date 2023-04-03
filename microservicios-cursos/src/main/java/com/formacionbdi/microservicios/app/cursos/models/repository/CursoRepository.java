@@ -1,6 +1,7 @@
 package com.formacionbdi.microservicios.app.cursos.models.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 
@@ -14,4 +15,8 @@ public interface CursoRepository extends JpaRepository<Curso, Long>{
 			+ "JOIN FETCH crs.cursoAlumno alm "
 			+ "WHERE alm.alumnoId = ?1")
 	public Curso findCursoByAlumnoIdRepository(Long id);
+	
+	@Modifying
+	@Query("DELETE FROM CursoAlumno ca WHERE ca.alumnoId = ?1")
+	public void eliminarCursoAlumnoPorId(Long id);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.formacionbdi.microservicios.commnos.alumnos.models.entity.Alumno;
 
@@ -34,14 +35,17 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Long> {
 	 * WHERE
 	 * 	alumnos.nombre LIKE '%andr%' OR
 	 * 	alumnos.apellido LIKE '%cast%'
+	 *
+	 * @Query("select a from Alumno a where upper(a.nombre) like upper(concat('%', ?1, '%')) or upper(a.apellido) like upper(concat('%', ?1, '%'))")
 	 */
+	 
 	@Query("SELECT "
 			+ 		"alum "
 			+ "FROM "
 			+ 		"Alumno alum "
 			+ "WHERE "
-			+ 		"LOWER(alum.nombre) LIKE LOWER(concat('%', ?1, '%')) "
-			+ 	"OR LOWER(alum.apellido) LIKE LOWER(concat('%', ?1, '%'))")
-	public List<Alumno> findByNombreOrApellido(String termino);
+			+ 		"lower(alum.nombre) LIKE lower(concat('%%', :valor, '%%')) OR "
+			+ 		"lower(alum.apellido) LIKE lower(concat('%%', :valor, '%%'))")
+	public List<Alumno> findByNombreOrApellido(@Param("valor") String termino);
 	
 }

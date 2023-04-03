@@ -22,7 +22,8 @@ public interface CursoService extends ComunContrato<Curso> {
 	 * Listado de examenes respondidos.
 	 */
 	public Iterable<Long> obtenerExamenesIdsConRespuestasAlumno(Long alumnoId); // (1 Feign)
-	
-	
+		
 	public Iterable<Alumno> obtenerAlumnosPorCurso(Iterable<Long> ids); // (2 Feign)
+		
+	public void eliminarCursoAlumnoPorId(Long id);
 }

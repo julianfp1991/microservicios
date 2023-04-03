@@ -88,4 +88,12 @@ public class CursoServiceImpl extends ComunServiceImpl<Curso, CursoRepository> i
 		return clienteAlumno.obtenerAlumnosPorCurso(ids);
 	}
 
+
+	@Override
+	@Transactional
+	public void eliminarCursoAlumnoPorId(Long id) {
+		
+		repositorioCrud.eliminarCursoAlumnoPorId(id);	
+	}
+
 }
