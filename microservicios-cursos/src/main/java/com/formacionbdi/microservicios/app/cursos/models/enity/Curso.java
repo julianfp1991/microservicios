@@ -85,7 +85,7 @@ public class Curso {
 	
 	
 	/*
-	 * establece automáticamente en la fecha actual antes de que se persista la
+	 * establece automaticamente en la fecha actual antes de que se persista la
 	 * entidad en la base de datos
 	 */
 	@PrePersist

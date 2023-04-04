@@ -24,7 +24,7 @@ public class Pregunta {
 
 	
 	/*
-	 * Esta Entity es la dueña de la relacion por el @JoinColumn que tiene
+	 * Esta Entity es la duenia de la relacion por el @JoinColumn que tiene
 	 * la llave foranea que establece la relacion entre una pregunta y el examen.
 	 * 
 	 * @JoinColumn: establece un relacion bidireccional entre las entidades «Examen» y «Pregunta» y
@@ -71,7 +71,7 @@ public class Pregunta {
 		}
 		if(!(obj instanceof Pregunta)) {
 			return false;
-// Si el objeto NO es una instancia de Alumno, entonces retornamos Falso.
+// Si el objeto NO es una instancia de Pregunta, entonces retornamos falso.
 
 		}
 		

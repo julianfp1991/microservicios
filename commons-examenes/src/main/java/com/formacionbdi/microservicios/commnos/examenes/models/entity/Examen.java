@@ -50,7 +50,7 @@ public class Examen {
 	 * CascadeType.PERSIST: cuando se cree un examen, tambien cree sus preguntas.
 	 * CascadeType.REMOVE: cuando se elimine un examen tambien sera eliminadas las preguntas.
 	 * 
-	 * orphanRemoval=true: cuando una pregunta quita de la Lista —NULL— y no este asociada con ningun otro examen
+	 * orphanRemoval=true: cuando una pregunta se quita de la Lista —NULL— y no este asociada con ningun otro examen
 	 * automaticamente sera eliminada.
 	 * 
 	 * mappedBy = "examen": establece la relacion bidireccional

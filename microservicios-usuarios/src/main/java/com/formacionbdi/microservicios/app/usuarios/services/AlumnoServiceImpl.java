@@ -2,6 +2,8 @@ package com.formacionbdi.microservicios.app.usuarios.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import java.util.Optional;
 
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 //import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.formacionbdi.microservicios.app.usuarios.client.CursoFeignClient;
 //import com.formacionbdi.microservicios.app.usuarios.models.repository.AlumnoRepository;
 import com.formacionbdi.microservicios.app.usuarios.models.repository.AlumnoRepository;
 import com.formacionbdi.microservicios.commnos.alumnos.models.entity.Alumno;
@@ -21,6 +24,8 @@ import com.formacionbdi.microservicios.comun.services.ComunServiceImpl;
 // public class AlumnoServiceImpl implements AlumnoServiceContrato {
 public class AlumnoServiceImpl extends ComunServiceImpl<Alumno, AlumnoRepository> implements AlumnoServiceContrato {
 
+	@Autowired
+	private CursoFeignClient clienteCurso;
 	
 	@Override
 	@Transactional(readOnly=true) // como es un select es por eso readOnly
@@ -36,6 +41,28 @@ public class AlumnoServiceImpl extends ComunServiceImpl<Alumno, AlumnoRepository
 		return repositorioCrud.findAllById(ids);
 	}
 
+	/*
+	 * Este es un cliente Feign por tanto el @Transactional no va.
+	 */
+	@Override
+	public void eliminarAlumnoPorCursoId(Long id) {
+		
+		clienteCurso.eliminarAlumnoPorCursoId(id);
+	}
+
+	/*
+	 * Se implementa en "deleteById" porque se hace uso del @Transactional
+	 * dado de que si falla la comunicacion por alguna razon, no se va
+	 * eliminar ni de MariaDB (Curso), ni de Postgres(Alumno). Con esto se asegura la integridad
+	 * de los datos.
+	 */
+	@Override
+	@Transactional
+	public void deleteById(Long id) {
+		super.deleteById(id);
+		this.eliminarAlumnoPorCursoId(id);
+	}
+	
 
 	/*
 	 * @Autowired private AlumnoRepository repositorioCrud;

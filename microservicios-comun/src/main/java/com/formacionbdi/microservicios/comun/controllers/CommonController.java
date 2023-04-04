@@ -103,7 +103,7 @@ public class CommonController <ENT, SRV extends ComunContrato<ENT>> {
 	
 /* =============== Se inician las peticiones de tipo Put/Editar ================================ */
 	
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> eliminar(@PathVariable Long id){
 		
 		servicio.deleteById(id); // void

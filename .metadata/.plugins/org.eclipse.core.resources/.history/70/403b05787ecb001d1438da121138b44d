@@ -1,5 +1,0 @@
-package com.formacionbdi.microservicios.app.cursos.models.enity;
-
-public class CursoAlumno {
-
-}

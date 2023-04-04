@@ -1,8 +1,0 @@
-package com.formacionbdi.microservicios.app.cursos.models.enity;import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="curso_alumnos")
-public class CursoAlumno {
-
-}

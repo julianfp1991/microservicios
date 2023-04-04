@@ -3,6 +3,7 @@ package com.formacionbdi.microservicios.app.usuarios;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /*
  * @SpringBootApplication, de forma automatica agrega los "Entity", los registra
@@ -14,7 +15,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  * "@EntityScan"
  */
 
-
+@EnableFeignClients
 @SpringBootApplication
 @EntityScan({"com.formacionbdi.microservicios.commnos.alumnos.models.entity"})
 public class MicroserviciosUsuariosApplication {
