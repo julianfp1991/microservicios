@@ -26,7 +26,8 @@ public class RespuestaServiceImpl implements RespuestaService {
 	@Transactional(readOnly= true)
 	public Iterable<Respuesta> findRespuestaByAlumnoByExamen(Long alumnoId, Long examenId) {
 
-		return repositorio.findRespuestaByAlumnoByExamen(alumnoId, examenId);
+		//return repositorio.findRespuestaByAlumnoByExamen(alumnoId, examenId);
+		return null;
 	}
 
 
@@ -34,7 +35,8 @@ public class RespuestaServiceImpl implements RespuestaService {
 	@Transactional(readOnly= true)
 	public Iterable<Long> findExamenesIdsConRespuestasByAlumno(Long alumnoId) {
 
-		return repositorio.findExamenesIdsConRespuestasByAlumno(alumnoId);
+		//return repositorio.findExamenesIdsConRespuestasByAlumno(alumnoId);
+		return null;
 	}
 
 }
