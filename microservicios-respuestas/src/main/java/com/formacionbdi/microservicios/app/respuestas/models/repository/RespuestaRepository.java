@@ -8,7 +8,7 @@ import com.formacionbdi.microservicios.app.respuestas.models.entity.Respuesta;
 public interface RespuestaRepository extends MongoRepository<Respuesta, Long> {
 
 	@Query("{'alumnoId': ?0, "
-			+ "'preguntaId': { $in: ?1} }") // Query de MongoDB
+			+ "'preguntaId': { $in: ?1 } }") // Query de MongoDB
 	public Iterable<Respuesta> findRespuestaByAlumnoByPreguntaIds(Long alumndoId, Iterable<Long> preguntaIds);
 	
 	/*
