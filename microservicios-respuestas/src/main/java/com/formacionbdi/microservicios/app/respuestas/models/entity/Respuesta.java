@@ -1,11 +1,12 @@
 package com.formacionbdi.microservicios.app.respuestas.models.entity;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.formacionbdi.microservicios.commnos.alumnos.models.entity.Alumno;
 import com.formacionbdi.microservicios.commnos.examenes.models.entity.Pregunta;
+
+import jakarta.persistence.Transient;
 
 @Document(collection = "respuestas")
 public class Respuesta {
@@ -19,8 +20,7 @@ public class Respuesta {
 	private Alumno alumno;
 
 	private Long alumnoId;
-	
-	
+		
 	@Transient	// No esta mapeado a un atributo del documento
 	private Pregunta pregunta;
 	
