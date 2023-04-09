@@ -1,11 +1,11 @@
 package com.formacionbdi.microservicios.app.respuestas.services;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.formacionbdi.microservicios.app.respuestas.clients.ExamenFeignClient;
 import com.formacionbdi.microservicios.app.respuestas.models.entity.Respuesta;
@@ -25,7 +25,6 @@ public class RespuestaServiceImpl implements RespuestaService {
 	
 	
 	@Override
-	@Transactional	// org.springframework.transaction.annotation.Transactional;
 	public Iterable<Respuesta> guardarTodo(Iterable<Respuesta> respuestas) {
 
 		return repositorio.saveAll(respuestas);
@@ -33,7 +32,6 @@ public class RespuestaServiceImpl implements RespuestaService {
 
 
 	@Override
-	@Transactional(readOnly = true)
 	public Iterable<Respuesta> findRespuestaByAlumnoByExamen(Long alumnoId, Long examenId) {
 
 		//return repositorio.findRespuestaByAlumnoByExamen(alumnoId, examenId);
@@ -67,11 +65,37 @@ public class RespuestaServiceImpl implements RespuestaService {
 
 
 	@Override
-	@Transactional(readOnly = true)
 	public Iterable<Long> findExamenesIdsConRespuestasByAlumno(Long alumnoId) {
 
-		//return repositorio.findExamenesIdsConRespuestasByAlumno(alumnoId);
-		return null;
+		// Obtener todas las respuestas desde MongoDB buscada por el Id del Alumno
+		List<Respuesta> respuestasAlumno = (List<Respuesta>) repositorio.findByAlumnoId(alumnoId);
+		
+		// Se crea una lista vacia con los Ids de los examenes class "Collections"
+		List<Long> examenIds = Collections.emptyList();
+		
+		// Validar que al menos haya un respuesta del Alumno por Id
+		if(respuestasAlumno.size() > 0) {
+			
+			// Convertir la lista "respuestasAlumno" para obtener lista de preguntas-Id
+			List<Long> preguntaIds = respuestasAlumno
+					.stream()
+					.map(r -> r.getPreguntaId())
+					.collect(Collectors.toList());
+			
+			/*	Usando Feign se llama al endpoint para obtener los examenes que corresponden 
+			 	a las "preguntaIds" */
+			examenIds = examenCliente.obtenerExamenesIdsPorPreguntasIdRespondidas(preguntaIds);
+		}
+		
+		/* return repositorio.findExamenesIdsConRespuestasByAlumno(alumnoId); */
+		return examenIds;
+	}
+
+
+	@Override
+	public Iterable<Respuesta> findByAlumnoId(Long alumnoId) {
+
+		return repositorio.findByAlumnoId(alumnoId);
 	}
 
 }

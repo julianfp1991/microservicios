@@ -14,6 +14,13 @@ public interface ExamenRepository extends JpaRepository<Examen, Long>{
 	// exm: alias u objeto.
 	@Query("select exm from Examen exm where exm.nombre like %?1%")
 	public List<Examen> findByNombre(String termino);
+	
+	@Query("SELECT e.id "
+			+ "FROM Pregunta p "
+			+ "JOIN p.examen e "
+			+ "WHERE p.id IN ?1 "
+			+ "GROUP BY e.id")
+	public Iterable<Long> findExamenesIdsConRespuestasByPreguntaIds(Iterable<Long> preguntaIds);
 /*
  * Este metodo es mas seguro, ya que podria evitar ataques de inyeccion de SQL.
  * 

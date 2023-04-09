@@ -1,7 +1,5 @@
 package com.formacionbdi.microservicios.app.respuestas.services;
 
-import org.springframework.data.repository.query.Param;
-
 import com.formacionbdi.microservicios.app.respuestas.models.entity.Respuesta;
 
 public interface RespuestaService {
@@ -15,11 +13,11 @@ public interface RespuestaService {
 	 * respuestas «guardarTodo»
 	 */
 	public Iterable<Respuesta> guardarTodo(Iterable<Respuesta> respuestas);
-	
-	
+		
 	public Iterable<Respuesta> findRespuestaByAlumnoByExamen(Long alumnoId, Long examenId);
 	
+	public Iterable<Long> findExamenesIdsConRespuestasByAlumno(Long alumnoId);
 	
-	public Iterable<Long> findExamenesIdsConRespuestasByAlumno(@Param("alumnoId") Long alumnoId);
+	public Iterable<Respuesta> findByAlumnoId(Long alumnoId);
 
 }

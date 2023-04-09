@@ -14,7 +14,6 @@ public interface CursoService extends ComunContrato<Curso> {
 	 * public Curso guardar(Curso entity);
 	 * public void deleteById(Long id);
 	 */
-	
 	public Curso findCursoByAlumnoId(Long id);
 	
 	/*

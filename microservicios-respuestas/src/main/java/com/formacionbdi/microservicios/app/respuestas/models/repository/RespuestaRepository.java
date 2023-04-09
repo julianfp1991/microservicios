@@ -11,6 +11,9 @@ public interface RespuestaRepository extends MongoRepository<Respuesta, Long> {
 			+ "'preguntaId': { $in: ?1 } }") // Query de MongoDB
 	public Iterable<Respuesta> findRespuestaByAlumnoByPreguntaIds(Long alumndoId, Iterable<Long> preguntaIds);
 	
+	@Query("{'alumnoId' : ?0}")
+	public Iterable<Respuesta> findByAlumnoId(Long alumnoId);
+	
 	/*
 	 * «?1» --> alumnoId
 	 * «?2» --> examenId
@@ -35,7 +38,7 @@ public interface RespuestaRepository extends MongoRepository<Respuesta, Long> {
 	 * Consulta para obtener los Ids de examanes respondidos por el alumno.
 	 * 
 	 * el fetch se utiliza cuando queremos retornar el objeto, con los demas objetos relacionados.
-	 
+	 * 
 	@Query("SELECT e.id "
 			+ "FROM Respuesta r "
 			+ "JOIN r.pregunta p "

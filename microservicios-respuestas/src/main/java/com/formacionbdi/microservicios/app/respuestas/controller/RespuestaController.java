@@ -28,6 +28,7 @@ public class RespuestaController {
 				.stream()
 				.map(r -> {		// r: Respuesta
 					r.setAlumnoId(r.getAlumno().getId());
+					r.setPreguntaId(r.getPregunta().getId());	// Cuando nos envian el JSON viene completo Alumo y obj Pregunta
 					return r;
 				})
 				.collect(Collectors.toList());

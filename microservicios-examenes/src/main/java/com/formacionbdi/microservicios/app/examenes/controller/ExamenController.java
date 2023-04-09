@@ -1,7 +1,6 @@
 package com.formacionbdi.microservicios.app.examenes.controller;
 
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -11,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.formacionbdi.microservicios.app.examenes.models.entity.Pregunta;
 import com.formacionbdi.microservicios.app.examenes.services.ExamenService;
 import com.formacionbdi.microservicios.commnos.examenes.models.entity.Examen;
 import com.formacionbdi.microservicios.comun.controllers.CommonController;
@@ -23,11 +22,20 @@ import jakarta.validation.Valid;
 @RestController
 public class ExamenController extends CommonController<Examen, ExamenService> {
 
-	
+	/*
+	 * Endpoint para obtener todas las pregunta «IN (1,3,4)» junto con el Id del examen. En el repositorio esta agrupado
+	 * por Id del examen.
+	 * 
+	 * NOTA: Es mejor usar un tipo "List" es mas concreto, que un "Iterable" «@RequestParam Iterable<Long> preguntaId»
+	 */
+	@GetMapping("/respondidos-por-preguntas")
+	public ResponseEntity<?> obtenerExamenesIdsPorPreguntasIdRespondidas(@RequestParam List<Long> preguntaId){
+		return ResponseEntity.ok().body(servicio.findExamenesIdsConRespuestasByPreguntaIds(preguntaId));
+	}
 	
 /* ************* CONTROLADOR PARA BUSCAR EXAMEN ****************************/
 	
-	@PutMapping("/{id}")
+	@PutMapping("/{id}")  
 	public ResponseEntity<?> editar(@Valid @RequestBody Examen examenR, BindingResult resultado, @PathVariable Long id) {
 		
 		// Ahora se valida antes de editar usando el metodo "validar"

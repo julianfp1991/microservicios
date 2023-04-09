@@ -181,6 +181,12 @@ public class CursoController extends CommonController<Curso, CursoService>{
 				List<Long> examenesIds = (List<Long>) servicio.obtenerExamenesIdsConRespuestasAlumno(id); // (1 Feign)
 				
 				/*
+				 * Para efectos de pruebas parcialmente se asigna este "if" dado que el metodo invocado
+				 * "findExamenesIdsConRespuestasByAlumno" esta retornando un Null en microservicio-Respuesta
+				 */
+				if (examenesIds != null && examenesIds.size() > 0) {
+					
+				/*
 				 * API stream: sirve para manipular objetos y usar el operador "map" que permite
 				 * cambiar el estado por cada objeto.
 				 * 
@@ -210,6 +216,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 				 * la nueva lista «examenesNueva» usando el metodo «setExamenes».
 				 */
 				curso1.setExamenes(examenesNueva);
+				}
 			}
 		return ResponseEntity.ok(curso1);
 	}

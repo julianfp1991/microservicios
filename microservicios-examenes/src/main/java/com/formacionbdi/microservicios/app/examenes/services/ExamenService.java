@@ -16,4 +16,6 @@ public interface ExamenService extends ComunContrato<Examen>{
 	 */	
 	public List<Asignatura> buscarTodasAsignatura();
 	
+	public Iterable<Long> findExamenesIdsConRespuestasByPreguntaIds(Iterable<Long> preguntaIds);
+	
 }

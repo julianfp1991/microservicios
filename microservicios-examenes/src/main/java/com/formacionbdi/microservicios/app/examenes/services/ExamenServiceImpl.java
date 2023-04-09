@@ -40,8 +40,6 @@ public class ExamenServiceImpl extends ComunServiceImpl<Examen, ExamenRepository
 
 		return repositorioCrud.findByNombre(termino);
 	}
-
-
 	
 	/* 
 	 * OPCION-1: Cambiar la interfaz «ExamenService» a un "Iterable<>", dado que "findAll()" retorna
@@ -53,10 +51,7 @@ public class ExamenServiceImpl extends ComunServiceImpl<Examen, ExamenRepository
 	  
 	  		return asignaturaRepository.findAll();
 	  }
-	 */
 
-	
-	/*
 	 * OPCION-2: Hacer un CAST a un "List<>", porque el "findAll()" retorna un
 	 * Iterable
 	 */
@@ -64,6 +59,13 @@ public class ExamenServiceImpl extends ComunServiceImpl<Examen, ExamenRepository
 	@Transactional(readOnly = true)
 	public List<Asignatura> buscarTodasAsignatura() {
 		return (List<Asignatura>) asignaturaRepository.findAll();
+	}
+
+
+	@Override
+	@Transactional(readOnly = true)
+	public Iterable<Long> findExamenesIdsConRespuestasByPreguntaIds(Iterable<Long> preguntaIds) {
+		return repositorioCrud.findExamenesIdsConRespuestasByPreguntaIds(preguntaIds);
 	}
 
 }
