@@ -14,8 +14,11 @@ public interface RespuestaRepository extends MongoRepository<Respuesta, Long> {
 	@Query("{'alumnoId' : ?0}")
 	public Iterable<Respuesta> findByAlumnoId(Long alumnoId);
 	
-	/*@Query("{'alumnoId' : ?0, 'pregunta.examen.id': ?1}")
+	@Query("{'alumnoId' : ?0, 'pregunta.examen.id': ?1}")
 	public Iterable<Respuesta> findRespuestaByAlumnoByExamen(Long alumnoId, Long examenId);
+	
+	@Query(value = "{'alumnoId' : ?0}", fields = "{'pregunta.examen.id': 1}") // (1) es para mostrar el BSON
+	public Iterable<Respuesta> findExamenesIdsConRespuestasByAlumno(Long alumnoId);
 	
 	/*
 	 * «?1» --> alumnoId

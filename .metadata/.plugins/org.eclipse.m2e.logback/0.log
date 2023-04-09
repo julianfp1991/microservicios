@@ -4935,3 +4935,134 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact io.netty:nett
 2023-04-09 15:44:06,961 [Worker-73: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
 2023-04-09 15:44:06,965 [Worker-73: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
 2023-04-09 15:44:06,967 [Worker-73: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:46:18,118 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:46:18,121 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:46:18,124 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:47:20,088 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:47:20,092 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:47:20,094 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:49:56,005 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:49:56,008 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:49:56,010 [Worker-76: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:50:15,673 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:50:15,676 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:50:15,678 [Worker-77: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:54:20,406 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:54:20,410 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:54:20,411 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:57:43,500 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:57:43,503 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:57:43,505 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:57:50,754 [Worker-86: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:57:50,761 [Worker-86: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:57:50,764 [Worker-86: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 15:59:26,252 [Worker-89: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 15:59:26,256 [Worker-89: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 15:59:26,258 [Worker-89: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:34:23,584 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:34:23,588 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:34:23,590 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:34:54,798 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:34:54,802 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:34:54,805 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:34:57,511 [Worker-92: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:34:57,516 [Worker-92: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:34:57,519 [Worker-92: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:35:01,049 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:35:01,053 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:35:01,054 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:35:35,178 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:35:35,181 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:35:35,182 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:56:11,832 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:56:11,836 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:56:11,838 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:57:52,162 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:57:52,173 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:57:52,175 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 16:58:51,144 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 16:58:51,153 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 16:58:51,157 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:00:56,799 [Worker-99: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:00:56,804 [Worker-99: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:00:56,808 [Worker-99: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:01:06,053 [Worker-99: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:01:06,065 [Worker-99: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:01:06,066 [Worker-99: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:03:49,252 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:03:49,257 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:03:49,259 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:05:48,582 [Worker-103: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:05:48,586 [Worker-103: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:05:48,589 [Worker-103: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:06:02,200 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:06:02,203 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:06:02,205 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:06:28,525 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:06:28,530 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:06:28,533 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:07:21,838 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:07:21,842 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:07:21,845 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:09:29,542 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:09:29,545 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:09:29,547 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:09:37,990 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:09:37,992 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:09:37,994 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:16:30,662 [Worker-103: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:16:30,666 [Worker-103: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:16:30,667 [Worker-103: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:16:40,767 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:16:40,771 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:16:40,772 [Worker-106: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:16:59,630 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:16:59,633 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:16:59,634 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:18:50,913 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:18:50,916 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:18:50,920 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:19:02,191 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:19:02,194 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:19:02,196 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:19:51,983 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:19:51,986 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:19:51,988 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:32:32,341 [Worker-114: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:32:32,347 [Worker-114: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:32:32,363 [Worker-114: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:32:34,223 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:32:34,227 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:32:34,230 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:32:42,324 [Worker-114: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:32:42,340 [Worker-114: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:32:42,343 [Worker-114: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:33:16,828 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:33:16,832 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:33:16,835 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:33:48,912 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:33:48,917 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:33:48,920 [Worker-111: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:34:09,979 [Worker-112: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:34:09,981 [Worker-112: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:34:09,984 [Worker-112: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:50:00,364 [Worker-116: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:50:00,370 [Worker-116: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:50:00,373 [Worker-116: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:50:09,660 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-04-09 17:50:09,665 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-04-09 17:50:09,667 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Julian\curso-microservicios\espacio-de-trabajo\microservicios-respuestas\src\test\resources
+2023-04-09 17:50:38,222 [Worker-119: Launching microservicios-respuestas - MicroserviciosRespuestasApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-examenes: com.formacionbdi.microservicios.commons.examenes:commons-examenes:0.0.1-SNAPSHOT with classifier null to /commons-examenes/target/classes
+2023-04-09 17:50:38,223 [Worker-119: Launching microservicios-respuestas - MicroserviciosRespuestasApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-alumnos: com.formacionbdi.microservicios.commnos.alumnos:commons-alumnos:0.0.1-SNAPSHOT with classifier null to /commons-alumnos/target/classes
+2023-04-09 17:50:38,373 [Worker-119: Launching microservicios-respuestas - MicroserviciosRespuestasApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-examenes: com.formacionbdi.microservicios.commons.examenes:commons-examenes:0.0.1-SNAPSHOT with classifier null to /commons-examenes/target/classes
+2023-04-09 17:50:38,373 [Worker-119: Launching microservicios-respuestas - MicroserviciosRespuestasApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-alumnos: com.formacionbdi.microservicios.commnos.alumnos:commons-alumnos:0.0.1-SNAPSHOT with classifier null to /commons-alumnos/target/classes
+2023-04-09 17:50:38,520 [Worker-119: Launching microservicios-respuestas - MicroserviciosRespuestasApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-examenes: com.formacionbdi.microservicios.commons.examenes:commons-examenes:0.0.1-SNAPSHOT with classifier null to /commons-examenes/target/classes
+2023-04-09 17:50:38,521 [Worker-119: Launching microservicios-respuestas - MicroserviciosRespuestasApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-alumnos: com.formacionbdi.microservicios.commnos.alumnos:commons-alumnos:0.0.1-SNAPSHOT with classifier null to /commons-alumnos/target/classes
+2023-04-09 17:50:47,526 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-examenes: com.formacionbdi.microservicios.commons.examenes:commons-examenes:0.0.1-SNAPSHOT with classifier null to /commons-examenes/target/classes
+2023-04-09 17:50:47,526 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-alumnos: com.formacionbdi.microservicios.commnos.alumnos:commons-alumnos:0.0.1-SNAPSHOT with classifier null to /commons-alumnos/target/classes
+2023-04-09 17:50:47,527 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/microservicios-comun: com.formacionbdi.microservicios.comun:microservicios-comun:0.0.1-SNAPSHOT with classifier null to /microservicios-comun/target/classes
+2023-04-09 17:50:47,673 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-examenes: com.formacionbdi.microservicios.commons.examenes:commons-examenes:0.0.1-SNAPSHOT with classifier null to /commons-examenes/target/classes
+2023-04-09 17:50:47,673 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-alumnos: com.formacionbdi.microservicios.commnos.alumnos:commons-alumnos:0.0.1-SNAPSHOT with classifier null to /commons-alumnos/target/classes
+2023-04-09 17:50:47,674 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/microservicios-comun: com.formacionbdi.microservicios.comun:microservicios-comun:0.0.1-SNAPSHOT with classifier null to /microservicios-comun/target/classes
+2023-04-09 17:50:47,813 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-examenes: com.formacionbdi.microservicios.commons.examenes:commons-examenes:0.0.1-SNAPSHOT with classifier null to /commons-examenes/target/classes
+2023-04-09 17:50:47,814 [Worker-120: Launching microservicios-cursos - MicroserviciosCursosApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons-alumnos: com.formacionbdi.microservicios.commnos.alumnos:commons-alumnos:0.0.1-SNAPSHOT with classifier null to /commons-alumnos/target/classes

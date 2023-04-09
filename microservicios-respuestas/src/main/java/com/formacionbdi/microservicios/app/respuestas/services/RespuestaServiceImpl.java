@@ -1,17 +1,13 @@
 package com.formacionbdi.microservicios.app.respuestas.services;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.formacionbdi.microservicios.app.respuestas.clients.ExamenFeignClient;
 import com.formacionbdi.microservicios.app.respuestas.models.entity.Respuesta;
 import com.formacionbdi.microservicios.app.respuestas.models.repository.RespuestaRepository;
-import com.formacionbdi.microservicios.commnos.examenes.models.entity.Examen;
-import com.formacionbdi.microservicios.commnos.examenes.models.entity.Pregunta;
 
 @Service
 public class RespuestaServiceImpl implements RespuestaService {
@@ -19,8 +15,8 @@ public class RespuestaServiceImpl implements RespuestaService {
 	@Autowired
 	private RespuestaRepository repositorio;
 	
-	@Autowired
-	private ExamenFeignClient examenCliente;
+	/*@Autowired
+	private ExamenFeignClient examenCliente;*/
 	
 	
 	
@@ -34,7 +30,10 @@ public class RespuestaServiceImpl implements RespuestaService {
 	@Override
 	public Iterable<Respuesta> findRespuestaByAlumnoByExamen(Long alumnoId, Long examenId) {
 
-		//return repositorio.findRespuestaByAlumnoByExamen(alumnoId, examenId);
+		/*
+		 * Este codigo es para consultar a traves de la bbdd distribuida usando Feign
+		 * 
+		 * return repositorio.findRespuestaByAlumnoByExamen(alumnoId, examenId);
 		
 		Examen examenIns = examenCliente.obtenerExamenPorId(examenId); // Cliente Feign; le pasa "examenId"
 		
@@ -59,7 +58,9 @@ public class RespuestaServiceImpl implements RespuestaService {
 					});
 					return r;	// Retorna la r Respuesta modificada con el objeto Pregunta
 				})
-				.collect(Collectors.toList());
+				.collect(Collectors.toList());*/
+		List<Respuesta> respuestasIns = (List<Respuesta>) repositorio.findRespuestaByAlumnoByExamen(alumnoId, examenId);
+		
 		return respuestasIns;
 	}
 
@@ -67,7 +68,11 @@ public class RespuestaServiceImpl implements RespuestaService {
 	@Override
 	public Iterable<Long> findExamenesIdsConRespuestasByAlumno(Long alumnoId) {
 
-		// Obtener todas las respuestas desde MongoDB buscada por el Id del Alumno
+		/* 
+		 * Este codigo es para consultar a traves de la bbdd distribuida usando Feign
+		 * 
+		 * Obtener todas las respuestas desde MongoDB buscada por el Id del Alumno
+		 *
 		List<Respuesta> respuestasAlumno = (List<Respuesta>) repositorio.findByAlumnoId(alumnoId);
 		
 		// Se crea una lista vacia con los Ids de los examenes class "Collections"
@@ -83,11 +88,19 @@ public class RespuestaServiceImpl implements RespuestaService {
 					.collect(Collectors.toList());
 			
 			/*	Usando Feign se llama al endpoint para obtener los examenes que corresponden 
-			 	a las "preguntaIds" */
+			 	a las "preguntaIds" //
 			examenIds = examenCliente.obtenerExamenesIdsPorPreguntasIdRespondidas(preguntaIds);
 		}
 		
 		/* return repositorio.findExamenesIdsConRespuestasByAlumno(alumnoId); */
+		
+		List<Respuesta> respuestasAlumno = (List<Respuesta>) repositorio.findExamenesIdsConRespuestasByAlumno(alumnoId);
+		List<Long> examenIds = respuestasAlumno
+				.stream()
+				.map(r -> r.getPregunta().getExamen().getId()) // Obtenemos los Ids del examen de tipo Long
+				.distinct()	// Los ids del examen se repite por cada pregunta (3veces) deja un solo valor.
+				.collect(Collectors.toList());
+		
 		return examenIds;
 	}
 
