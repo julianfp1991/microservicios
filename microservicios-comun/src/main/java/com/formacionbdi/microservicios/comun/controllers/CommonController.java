@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,13 @@ import com.formacionbdi.microservicios.comun.services.ComunContrato;
 
 import jakarta.validation.Valid;
 
-
+/*
+ * Intercambio de origen cruzado
+ * Intercambio de datos entre cliente como Angular se trata
+ * de comunicar con el backend. Requiere control de acceso,
+ * Permitir solicitudes del cliente.
+ */
+@CrossOrigin({"http://localhost:4200"})  // 4200 - Angular
 public class CommonController <ENT, SRV extends ComunContrato<ENT>> {
 	
 	
