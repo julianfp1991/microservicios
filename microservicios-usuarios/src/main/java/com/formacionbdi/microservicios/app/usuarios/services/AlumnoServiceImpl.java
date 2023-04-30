@@ -3,11 +3,9 @@ package com.formacionbdi.microservicios.app.usuarios.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-//import java.util.Optional;
-
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+ 
 import org.springframework.stereotype.Service;
 //import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,8 +60,29 @@ public class AlumnoServiceImpl extends ComunServiceImpl<Alumno, AlumnoRepository
 		super.deleteById(id);
 		this.eliminarAlumnoPorCursoId(id);
 	}
+
+	/*
+	 * Se sobreescriben los metodos buscarTodo y buscarById
+	 * para que sean ordenados ascendente por Id.
+	 * Por bbdd Postgre
+	 */
+	@Override
+	@Transactional(readOnly=true)
+	public Iterable<Alumno> buscarTodo() {
+
+		return repositorioCrud.findAllByOrderByIdAsc();
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Page<Alumno> buscarTodo(Pageable paginable) {
+		
+		return repositorioCrud.findAll(paginable);
+	}
+
 	
 
+	
 	/*
 	 * @Autowired private AlumnoRepository repositorioCrud;
 	 * 

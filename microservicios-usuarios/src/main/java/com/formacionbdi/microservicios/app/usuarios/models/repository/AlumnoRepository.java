@@ -2,6 +2,8 @@ package com.formacionbdi.microservicios.app.usuarios.models.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -47,5 +49,13 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Long> {
 			+ 		"lower(alum.nombre) LIKE lower(concat('%%', :valor, '%%')) OR "
 			+ 		"lower(alum.apellido) LIKE lower(concat('%%', :valor, '%%'))")
 	public List<Alumno> findByNombreOrApellido(@Param("valor") String termino);
+	
+	/*
+	 * Ordenar por Id para que se visualice en orden ascendente en el Frontend.
+	 * por la bbdd Postgre
+	 */
+	public Iterable<Alumno> findAllByOrderByIdAsc();
+	
+	public Page<Alumno> findAllByOrderByIdAsc(Pageable paginable);
 	
 }

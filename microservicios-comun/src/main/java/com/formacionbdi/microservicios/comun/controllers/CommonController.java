@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
  * de comunicar con el backend. Requiere control de acceso,
  * Permitir solicitudes del cliente.
  */
-@CrossOrigin({"http://localhost:4200"})  // 4200 - Angular
+// @CrossOrigin({"http://localhost:4200"})   4200 - Angular
 public class CommonController <ENT, SRV extends ComunContrato<ENT>> {
 	
 	
