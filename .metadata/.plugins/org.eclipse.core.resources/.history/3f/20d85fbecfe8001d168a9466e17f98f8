@@ -54,10 +54,10 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Long> {
 	 * Ordenar por Id para que se visualice en orden ascendente en el Frontend.
 	 * por la bbdd Postgre
 	 */
-	//@Query("SELECT alm FROM Alumno alm ORDER BY alm.Id ASC")
+	@Query("SELECT alm from Alumno alm ORDER BY Id ASC")
 	public Iterable<Alumno> findAllByOrderByIdAsc();
 	
-	//@Query("SELECT alm FROM Alumno alm ORDER BY alm.Id ASC")
+	@Query("SELECT alm from Alumno alm ORDER BY Id ASC")
 	public Page<Alumno> findAllByOrderByIdAsc(Pageable paginable);
 	
 }

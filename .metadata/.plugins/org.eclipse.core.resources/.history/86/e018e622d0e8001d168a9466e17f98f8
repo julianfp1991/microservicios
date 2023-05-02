@@ -77,7 +77,7 @@ public class AlumnoServiceImpl extends ComunServiceImpl<Alumno, AlumnoRepository
 	@Transactional(readOnly=true)
 	public Page<Alumno> buscarTodo(Pageable paginable) {
 		
-		return repositorioCrud.findAllByOrderByIdAsc(paginable);
+		return repositorioCrud.findAll(paginable);
 	}
 
 	
