@@ -1,0 +1,225 @@
+package com.formacionbdi.microservicios.commnos.examenes.models.entity;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+// se agrego dependencia en el POM.xml - JSON
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+
+@Entity
+@Table(name="examenes")
+public class Examen {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotEmpty	// para validar String que no venga vacio
+	@Size(min = 4, max = 30) // tamaño minimo y maximo del nombre
+	private String nombre;
+	
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="create_at")
+	private Date CreateAt;
+	
+	
+	/*
+	 * fetch= FetchType.LAZY: las preguntas del examen no se cargaran con el objeto Examen
+	 * sino, que se cargaran cuando sea invocado el metodo getter, esto para el rendimiento de la app.
+	 * 
+	 * CascadeType.PERSIST: cuando se cree un examen, tambien cree sus preguntas.
+	 * CascadeType.REMOVE: cuando se elimine un examen tambien sera eliminadas las preguntas.
+	 * 
+	 * orphanRemoval=true: cuando una pregunta se quita de la Lista —NULL— y no este asociada con ningun otro examen
+	 * automaticamente sera eliminada.
+	 * 
+	 * mappedBy = "examen": establece la relacion bidireccional
+	 * 
+	 * orphanRemoval=true: se permiten metodos Setter de la propiedad preguntas.
+	 */
+	@JsonIgnoreProperties(value={"examen"}, allowSetters = true)
+	@OneToMany(mappedBy = "examen", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval=true)	// Un examen muchas preguntas
+	private List<Pregunta> preguntas; // campo preguntas relacionado con la clase Pregunta
+	
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+	
+	
+	// muchos examenes pueden estar asociados a una sola asignatura.
+	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull	// como esto es un objeto y no un String, por eso se usa "NotNull" y no "NotEmpty".
+	private Asignatura asignaturaPadre; // asignaturaExm, no
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull	// como esto es un objeto y no un String, por eso se usa "NotNull" y no "NotEmpty".
+	private Asignatura asignaturaHija;
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+	
+	/*
+	 * jakarta.persistence.Transient;
+	 * 
+	 * Especifica que este atributo no es persistente; por lo tanto, no esta mapeado a la tabla.
+	 * No hay un campo en la tabla que este mapeado a este atributo. Nada que ver con la tabla
+	 */
+	@Transient
+	private boolean respondido;
+	
+	
+	
+	public Examen() {
+		this.preguntas = new ArrayList<>();
+	}
+
+	@PrePersist
+	public void prePersist() {
+		this.CreateAt= new Date();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getCreateAt() {
+		return CreateAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		CreateAt = createAt;
+	}
+
+/* =============================================================================== */
+	
+	
+	public List<Pregunta> getPreguntas() {
+		return preguntas;
+	}
+
+	
+	/*
+	 * this.preguntas = preguntas, —no se esta asignando el examen por cada pregunta—
+	 */
+	public void setPreguntas(List<Pregunta> preguntas) {
+		//this.preguntas = preguntas;
+		
+		this.preguntas.clear(); // para resetear la lista, en caso de que se hayan eliminados preguntas del Array.
+		
+		/*opc1
+		preguntas.forEach(pre -> {
+			this.addPregunta(pre);
+		});*/
+		
+		/*opc2
+		preguntas.forEach(pre -> 
+			this.addPregunta(pre));*/
+		
+		//opc3
+		preguntas.forEach(this::addPregunta);
+		
+	}
+	
+	
+	/*
+	 * pregunta.setExamen(this): establece relacion inversa, sino se hace, va crear
+	 * el examen tambien va insertar las preguntas, pero cada pregunta va a tener
+	 * el foreign key en NULL —no tiene el examen—. Entonces la foreign key Examen
+	 * en la tabla preguntas va a ser nula.
+	 */
+	public void addPregunta(Pregunta pregunta2) {
+		this.preguntas.add(pregunta2);
+		pregunta2.setExamen(this);
+	}
+	
+	
+	/*
+	 * es por eso el "orphanRemoval=true", si la pregunta no esta relacionada con ningun
+	 * examen; se elimina.
+	 */
+	public void removePregunta(Pregunta pregunta2) {
+		this.preguntas.remove(pregunta2);
+		pregunta2.setExamen(null); // se quita la relacion, estamos quitando la pregunta de Preguntas en el examen.
+	}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+	
+	public void setAsignaturaPadre(Asignatura asignaturaPadre) {
+		this.asignaturaPadre = asignaturaPadre;
+	}
+
+	public Asignatura getAsignaturaHija() {
+		return asignaturaHija;
+	}
+	
+	public Asignatura getAsignaturaPadre() {
+		return asignaturaPadre;
+	}
+
+	public void setAsignaturaHija(Asignatura asignaturaHija) {
+		this.asignaturaHija = asignaturaHija;
+	}
+	
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/	
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj) { // los objetos son iguales
+			return true;
+		}
+		if(!(obj instanceof Examen)) {
+			return false;
+// Si el objeto NO es una instancia de Alumno, entonces retornamos Falso.
+
+		}
+		
+// Si es una instancia se comparan los id's
+		Examen objAlum = (Examen) obj; 
+		
+		return this.id != null && this.id.equals(objAlum.getId());
+// que el ID sea disntinto de nulo y ya que es distinto de nulo se compara el id del objeto "a"
+	}
+	
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+	
+	
+	public boolean isRespondido() {
+		return respondido;
+	}
+
+	public void setRespondido(boolean respondido) {
+		this.respondido = respondido;
+	}
+		
+
+}

@@ -28,7 +28,13 @@ public class Asignatura {
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 	// Atributo
-	@JsonIgnoreProperties(value = {"hijos"})
+	/*
+	 * Cuando el atributo llama al hijo y viceversa se genera un proxy por debajo
+	 * y este proxy se traducen en el JSON tambien maneja atributos los cuales pueden 
+	 * generar conflictos, entonces se omiten los atributos:
+	 * «handler» y «hibernateLazyInitializer»
+	 */
+	@JsonIgnoreProperties(value = {"hijos", "handler", "hibernateLazyInitializer"})
 	@ManyToOne(fetch = FetchType.LAZY) // muchas asignaturas "hijas" asociadas a un "padre"
 	private Asignatura padre; // [Matematicas:]
 	
@@ -38,7 +44,7 @@ public class Asignatura {
 	 * cascade: Si se elimina un padre tambien se eliminan los hijos.
 	 * mappedBy: relacion inversa
 	 */
-	@JsonIgnoreProperties(value = {"padre"}, allowSetters = true)
+	@JsonIgnoreProperties(value = {"padre", "handler", "hibernateLazyInitializer"}, allowSetters = true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy ="padre", cascade = CascadeType.ALL) // una asignatura muchos hijos
 	private List<Asignatura> hijos; // [Matematicas: {algebra, aritmetica, trigonometria}]
 

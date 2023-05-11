@@ -67,7 +67,11 @@ public class Examen {
 	// muchos examenes pueden estar asociados a una sola asignatura.
 	@ManyToOne(fetch = FetchType.LAZY)
 	@NotNull	// como esto es un objeto y no un String, por eso se usa "NotNull" y no "NotEmpty".
-	private Asignatura asignatura; // asignaturaExm, no
+	private Asignatura asignaturaPadre; // asignaturaExm, no
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull	// como esto es un objeto y no un String, por eso se usa "NotNull" y no "NotEmpty".
+	private Asignatura asignaturaHija;
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
 	
@@ -169,14 +173,22 @@ public class Examen {
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 	
-	public Asignatura getAsignatura() {
-		return asignatura;
-	}
-
-	public void setAsignatura(Asignatura asignatura) {
-		this.asignatura = asignatura;
+	public Asignatura getAsignaturaPadre() {
+		return asignaturaPadre;
 	}
 	
+	public void setAsignaturaPadre(Asignatura asignaturaPadre) {
+		this.asignaturaPadre = asignaturaPadre;
+	}
+	
+	public Asignatura getAsignaturaHija() {
+		return asignaturaHija;
+	}
+	
+	public void setAsignaturaHija(Asignatura asignaturaHija) {
+		this.asignaturaHija = asignaturaHija;
+	}
+		
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/	
 	
 	
@@ -199,6 +211,7 @@ public class Examen {
 	}
 	
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
+	
 	
 	public boolean isRespondido() {
 		return respondido;
